@@ -1,5 +1,7 @@
 # JS Regular Expression Tester
 
+## [Go Use](http://jsregex.herokuapp.com)
+
 When I'm working with Ruby and Regular Expressions I love using [Rubular](http://rubular.com/). I couldn't find a tool that was just like it but used JavaScript, so I built this.
 
 The app is a small Ruby (Sinatra) app, purely as that was the quickest thing I could use to get it online through Heroku, [where it currently lives](http://jsregex.herokuapp.com/). I guess I _should_ have made it a Node app...but Sinatra was quicker for me personally to through a quick site together, and keep all the logic on the front-end.
