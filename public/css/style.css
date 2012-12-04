@@ -1,8 +1,8 @@
 .container {
   width: 90%;
   font-family: "Helvetica", "Arial", sans-serif;
-  font-size: 16px;
-  line-height: 25px;
+  font-size: 15px;
+  line-height: 23px;
   margin: 0 auto;
 }
 
@@ -37,14 +37,15 @@
 }
 
 .input { margin-bottom: 30px; }
+.input:last-of-type { margin-bottom: 10px; }
 
 .quickref {
   clear: both;
   overflow: auto;
 }
-.quickref > div { float: left; width: 30%; }
+.quickref > div { float: left;}
 .quickref td {
-  padding-right: 15px;
+  padding-right: 5px;
 }
 
 .foot {
@@ -54,5 +55,11 @@
 
 .foot a:visited {
   color: blue;
+}
+
+span.error code {
+  font-size: 18px;
+  color: red;
+  background: white;
 }
 
