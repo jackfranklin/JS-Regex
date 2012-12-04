@@ -1,0 +1,58 @@
+.container {
+  width: 90%;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 25px;
+  margin: 0 auto;
+}
+
+.input {
+  width: 60%;
+  float: left;
+}
+.input textarea {
+  width: 90%;
+  height: 200px;
+}
+.input input { width: 50%; }
+.input textarea,
+.input input { font-size: 17px; padding: 10px 5px; }
+
+.output {
+  width: 38%;
+  float: right;
+}
+
+.matched-text, .matched-group, code {
+  font-size: 16px;
+  font-family: "Courier";
+  background: #111;
+  color: white;
+  padding: 3px;
+}
+.matched-index { display: block; }
+
+.output>li {
+  margin-bottom: 15px;
+}
+
+.input { margin-bottom: 30px; }
+
+.quickref {
+  clear: both;
+  overflow: auto;
+}
+.quickref > div { float: left; width: 30%; }
+.quickref td {
+  padding-right: 15px;
+}
+
+.foot {
+  font-size: 14px;
+  padding: 30px 0;
+}
+
+.foot a:visited {
+  color: blue;
+}
+

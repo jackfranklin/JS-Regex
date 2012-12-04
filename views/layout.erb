@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Regex</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/jquery.highlighttextarea.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.highlighttextarea.js"></script>
+  <script src="js/app.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="input">
+      <div class="field">
+        <p>Enter your Regular Expression:</p>
+        <input type="text" name="regexp" value="" />
+      </div>
+      <div class="field">
+        <p>Enter your text to match:</p>
+        <textarea name="content"></textarea>
+      </div>
+    </div>
+    <div class="output">
+      <h4>Matches:</h4>
+      <ul></ul>
+      <div>JS Regex is a tool for quickly trying out RegExp patterns with JavaScript. It's heavily inspired by <a href="http://rubular.com">Rubular</a>, the Ruby equivalent.</div>
+    </div>
+    <div class="quickref">
+      <div>
+        <table>
+          <tbody><tr>
+            <td><code>[abc]</code></td>
+            <td>A single character of: a, b or c</td>
+          </tr>
+          <tr>
+            <td><code>[^abc]</code></td>
+            <td>Any single character except: a, b, or c</td>
+          </tr>
+          <tr>
+            <td><code>[a-z]</code></td>
+            <td>Any single character in the range a-z</td>
+          </tr>
+          <tr>
+            <td><code>[a-zA-Z]</code></td>
+            <td>Any single character in the range a-z or A-Z</td>
+          </tr>
+          <tr>
+            <td><code>^</code></td>
+            <td>Start of line</td>
+          </tr>
+          <tr>
+            <td><code>$</code></td>
+            <td>End of line</td>
+          </tr>
+          <tr>
+            <td><code>\A</code></td>
+            <td>Start of string</td>
+          </tr>
+          <tr>
+            <td><code>\z</code></td>
+            <td>End of string</td>
+          </tr>
+        </tbody></table>
+      </div>
+      <div>
+        <table>
+          <tbody><tr>
+            <td><code>.</code></td>
+            <td>Any single character</td>
+          </tr>
+        <tr>
+          <td><code>\s</code></td>
+          <td>Any whitespace character</td>
+        </tr>
+        <tr>
+          <td><code>\S</code></td>
+          <td>Any non-whitespace character</td>
+        </tr>
+        <tr>
+          <td><code>\d</code></td>
+          <td>Any digit</td>
+        </tr>
+        <tr>
+          <td><code>\D</code></td>
+          <td>Any non-digit</td>
+        </tr>
+        <tr>
+          <td><code>\w</code></td>
+          <td>Any word character (letter, number, underscore)</td>
+        </tr>
+        <tr>
+          <td><code>\W</code></td>
+          <td>Any non-word character</td>
+        </tr>
+        <tr>
+          <td><code>\b</code></td>
+          <td>Any word boundary</td>
+        </tr>
+      </tbody></table>
+    </div>
+
+    <div>
+      <table>
+        <tbody><tr>
+          <td><code>(...)</code></td>
+          <td>Capture everything enclosed</td>
+        </tr>
+        <tr>
+          <td><code>(a|b)</code></td>
+          <td>a or b</td>
+        </tr>
+        <tr>
+          <td><code>a?</code></td>
+          <td>Zero or one of a</td>
+        </tr>
+        <tr>
+          <td><code>a*</code></td>
+          <td>Zero or more of a</td>
+        </tr>
+        <tr>
+          <td><code>a+</code></td>
+          <td>One or more of a</td>
+        </tr>
+        <tr>
+          <td><code>a{3}</code></td>
+          <td>Exactly 3 of a</td>
+        </tr>
+        <tr>
+          <td><code>a{3,}</code></td>
+          <td>3 or more of a</td>
+        </tr>
+        <tr>
+          <td><code>a{3,6}</code></td>
+          <td>Between 3 and 6 of a</td>
+        </tr>
+      </tbody></table>
+    </div>
+  </div>
+  <div class="foot">
+    <p>Made by <a href="http://twitter.com/Jack_Franklin">Jack Franklin</a>.</p>
+    <p>Heavily inspired by the Ruby equivalent, <a href="http://rubular.com">Rubular</a>.</p>
+    <p>The above reference guide was taken directly from Rubular, credit goes to <a href="http://twitter.com/lovitt">Michael Lovitt</a> for it.</p>
+  </div>
+</body>
+</html>
+
+
