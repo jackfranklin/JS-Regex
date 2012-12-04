@@ -1,5 +1,9 @@
 # JS Regular Expression Tester
 
+Quick regular expression testing in JavaScript, using JavaScript.
+
+![](http://cl.ly/image/0p1Y1h2e1F0G/Screen%20Shot%202012-12-04%20at%2019.21.06.png)
+
 ## [Go Use](http://jsregex.herokuapp.com)
 
 When I'm working with Ruby and Regular Expressions I love using [Rubular](http://rubular.com/). I couldn't find a tool that was just like it but used JavaScript, so I built this.
