@@ -1,39 +1,23 @@
 (function() {
-
   "use strict";
+
+
+
 
   $(function() {
     var input = $("input[name='regexp']");
     var match = $("textarea");
     var inputOpts = $("input[name='options']");
-
-    match.highlightTextarea();
-
-    var change = function() {
-      var inputVal = input.val();
-      var matchVal = match.val();
-      var inputOptsVal = inputOpts.val();
-      if(inputVal === "" || matchVal === "") return;
-
-      var re = new RegExp(inputVal, "g");
-      var matched;
-      var matches = [];
-      do {
-        matched = re.exec(matchVal);
-        if(matched) {
-          matches.push(matched);
-        }
-      } while(matched);
-
-      $(".output h4").after("<span class='regex-used'>Regex Used: <code>" + re.source + "</code></span>");
-
-      updateResults(matches);
-
-    };
-
+    input.add(inputOpts).add(match).on("keyup", function() {
+      try {
+        $(".error").remove();
+        $(".regex-used").remove();
+        change()
+      } catch (e) {
+        $(".output h4").after("<span class='error'><code>" + e.message + "</code></span>")
+      }
+    });
     var updateResults = function(matches) {
-
-      highlightTextarea(matches);
 
       var list = $(".output ul");
       $(".output div").hide();
@@ -68,30 +52,29 @@
         list.append(li);
       }
     };
+    var change = function() {
+      var inputVal = input.val();
+      var matchVal = match.val();
+      var inputOptsVal = inputOpts.val();
+      if(inputVal === "" || matchVal === "") return;
 
-    var highlightTextarea = function(matches) {
+      var re = new RegExp(inputVal, "g");
+      var matched;
+      var matches = [];
+      do {
+        matched = re.exec(matchVal);
+        if(matched) {
+          matches.push(matched);
+        }
+      } while(matched);
 
-      // the words to match are all the Regexp matches
-      var words = [];
-      for(var i = 0; i < matches.length; i++) {
-        words.push(matches[i][0]);
-      }
+      $(".output h4").after("<span class='regex-used'>Regex Used: <code>" + re.source + "</code></span>");
 
-      // set the words
-      match.highlightTextarea('setWords', words);
-      // this forces it to redraw and rehighlight the newly added words
-      match.highlightTextarea("highlight");
-    }
+      updateResults(matches);
 
-    input.add(inputOpts).add(match).on("keyup", function() {
-      try {
-        $(".error").remove();
-        $(".regex-used").remove();
-        change()
-      } catch (e) {
-        $(".output h4").after("<span class='error'><code>" + e.message + "</code></span>")
-      }
-    });
+    };
   });
+
+
 
 })();
