@@ -7,7 +7,7 @@
   $(function() {
     var input = $("input[name='regexp']");
     var match = $("textarea");
-    var inputOpts = $("input[name='options']");
+    var inputOpts = $("input[name='regexpopts']");
     input.add(inputOpts).add(match).on("keyup", function() {
       try {
         $(".error").remove();
@@ -18,26 +18,21 @@
       }
     });
     var updateResults = function(matches) {
-
       var list = $(".output ul");
       $(".output div").hide();
-
       var li;
       list.html("");
       for(var i = 0; i < matches.length; i++) {
-
         // get all the groups in the match to its own array
         var groups = [];
         // got to be j = 1, as 0 is the entire match, we only want groups
         for(var j = 1; j < matches[i].length; j++) {
           groups.push(matches[i][j]);
         };
-
         // start building the list item
         li = "<li><span class='matched-text'>";
         li += matches[i][0];
         li += "</span>";
-
         // add all the groups
         li += "<ul class='matched-groups'>";
         for(var y = 0; y < groups.length; y++) {
@@ -58,7 +53,7 @@
       var inputOptsVal = inputOpts.val();
       if(inputVal === "" || matchVal === "") return;
 
-      var re = new RegExp(inputVal, "g");
+      var re = new RegExp(inputVal, inputOptsVal);
       var matched;
       var matches = [];
       do {
@@ -67,8 +62,7 @@
           matches.push(matched);
         }
       } while(matched);
-
-      $(".output h4").after("<span class='regex-used'>Regex Used: <code>" + re.source + "</code></span>");
+      $(".output h4").after("<span class='regex-used'>Regex Used: <code>" + re.source + "</code> with options <code>" + inputOptsVal + "</code></span>");
 
       updateResults(matches);
 
