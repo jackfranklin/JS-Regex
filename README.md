@@ -27,5 +27,10 @@ Pull requests, bug reports and so on are much appreciated. If you're a designer 
 
 ## Changelog
 
+__v0.0.2__
+- remove text highlighting - unreliable and buggy
+- limit regex loop to 100 executions, fixes the infinite loop bug #3
+- allow user to add Regex options, closes #1
+
 __v0.0.1__
 - initial release
