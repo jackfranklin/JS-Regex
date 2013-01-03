@@ -56,12 +56,16 @@
       var re = new RegExp(inputVal, inputOptsVal);
       var matched;
       var matches = [];
+
+      // let the loop run only 100 times to avoid infinite matching (bit hacky but will do for now!)
+      var i = 0;
       do {
         matched = re.exec(matchVal);
+        i++;
         if(matched) {
           matches.push(matched);
         }
-      } while(matched);
+      } while(matched && i < 100);
       $(".output h4").after("<span class='regex-used'>Regex Used: <code>" + re.source + "</code> with options <code>" + inputOptsVal + "</code></span>");
 
       updateResults(matches);
