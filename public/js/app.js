@@ -44,6 +44,7 @@
         }
 
         li += "</ul>";
+        li += "</li>"; //close starting <li> on line 33
         list.append(li);
       }
     };
