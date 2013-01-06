@@ -15,21 +15,21 @@
 
     
     input.add(inputOpts).add(match).on("keyup", function() {
-        if (time) {
-          clearTimeout(time);
+      if (time) {
+        clearTimeout(time);
+      }
+
+      time = setTimeout(function() {
+        $(".error").remove();
+        $(".regex-used").remove();
+        
+        try {
+          change();
+        } catch( e ) {
+          $(".output h4").after("<span class='error'><code>" + e.message + "</code></span>")
         }
 
-        time = setTimeout(function() {
-          $(".error").remove();
-          $(".regex-used").remove();
-          
-          try {
-            change();
-          } catch( e ) {
-            $(".output h4").after("<span class='error'><code>" + e.message + "</code></span>")
-          }
-
-        }, 400);
+      }, 400);
     });
 
     var updateResults = function(matches) {
