@@ -5,18 +5,33 @@
 
 
   $(function() {
+     // in order to prevent method calls per keyup, setting a timeout
+     // that can be cleared if a keyup happens rapidly
+    var time;
+
     var input = $("input[name='regexp']");
     var match = $("textarea");
     var inputOpts = $("input[name='regexpopts']");
+
+    
     input.add(inputOpts).add(match).on("keyup", function() {
-      try {
-        $(".error").remove();
-        $(".regex-used").remove();
-        change()
-      } catch (e) {
-        $(".output h4").after("<span class='error'><code>" + e.message + "</code></span>")
-      }
+        if (time) {
+          clearTimeout(time);
+        }
+
+        time = setTimeout(function() {
+          $(".error").remove();
+          $(".regex-used").remove();
+          
+          try {
+            change();
+          } catch( e ) {
+            $(".output h4").after("<span class='error'><code>" + e.message + "</code></span>")
+          }
+
+        }, 400);
     });
+
     var updateResults = function(matches) {
       var list = $(".output ul");
       $(".output div").hide();
@@ -44,14 +59,16 @@
         }
 
         li += "</ul>";
-        li += "</li>"; //close starting <li> on line 33
         list.append(li);
       }
     };
+
+
     var change = function() {
       var inputVal = input.val();
       var matchVal = match.val();
       var inputOptsVal = inputOpts.val();
+
       if(inputVal === "" || matchVal === "") return;
 
       var re = new RegExp(inputVal, inputOptsVal);
