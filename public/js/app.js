@@ -59,6 +59,7 @@
         }
 
         li += "</ul>";
+        li += "</li>"
         list.append(li);
       }
     };
